@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0f1115">
+<title>SoundTrace: What, When, and Where Sounds Occur in Videos</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="#"><b>SoundTrace</b><span class="colon">:</span> <span class="sub">What, When, and Where Sounds Occur in Videos</span></a>
+</header>
+
+<main id="home">
+  <section class="intro">
+    <p class="hint">Tap a clip to play it. Sections: <a href="#sec-pipeline">annotation pipeline output</a>, <a href="#sec-model">model output (full captioning)</a> and <a href="#sec-model_ts">model output (timestamp requests)</a>.</p>
+  </section>
+  <div id="sections"></div>
+</main>
+
+<main id="player" hidden>
+  <nav class="pnav">
+    <a href="#" class="btn">&larr; All clips</a>
+    <span class="grow"></span><span id="secname" hidden></span>
+    <a id="prev" class="btn" href="#">&lsaquo; Prev</a>
+    <a id="next" class="btn" href="#">Next &rsaquo;</a>
+  </nav>
+  <div id="srcban" class="srcban"><span class="srcban-k" id="srcban-k"></span><span class="srcban-d" id="srcban-d"></span></div>
+  <div class="layout">
+    <div class="left">
+      <div class="vwrap"><video id="video" controls playsinline preload="metadata"></video></div>
+      <div class="howto" role="note">
+        <span class="howto-icon" aria-hidden="true">&#9758;</span>
+        <span><b><span class="t-touch">Tap</span><span class="t-mouse">Hover over or click</span> a colored bar</b> in the
+          timeline below (or an event in the list) to see <b>where that sound comes from</b>: its bounding boxes on the
+          actual frames. <span class="t-touch">Tap it again</span><span class="t-mouse">Click &times; or press Esc</span> to close.
+          Tap the timeline or spectrogram to jump in time.</span>
+      </div>
+      <div class="tl" id="tl">
+        <div class="ruler" id="ruler"></div>
+        <div class="spec"><img id="spec" alt="Spectrogram"></div>
+        <div id="lanes"></div>
+        <div class="playhead" id="playhead"></div>
+      </div>
+      <div id="kfpop" class="kfpop" hidden></div>
+      <div class="meta"><span id="cid"></span></div>
+      <p id="note" class="note" hidden></p>
+    </div>
+    <div class="right">
+      <details id="ov" class="ov">
+        <summary>Overview</summary>
+        <p id="ov1"></p>
+        <p id="ov2" class="sub"></p>
+      </details>
+      <h2 class="caph">Sound events <span class="caph-hint">· <span class="t-touch">tap</span><span class="t-mouse">hover or click</span> one to see its boxes</span></h2>
+      <div id="caps" class="caps"></div>
+    </div>
+  </div>
+</main>
+
+<script src="clips.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
