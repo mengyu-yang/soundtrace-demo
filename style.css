@@ -176,3 +176,9 @@ video { width: 100%; display: block; max-height: 70vh; background: #000; }
 .srcban-pipeline { border-color: #2ec4b6; background: rgba(46,196,182,.12); } .srcban-pipeline .srcban-k { color: #3ee0d0; }
 .srcban-model { border-color: #c77dff; background: rgba(199,125,255,.12); } .srcban-model .srcban-k { color: #d9a3ff; }
 .srcban-model_ts { border-color: #ff9f43; background: rgba(255,159,67,.12); } .srcban-model_ts .srcban-k { color: #ffb36b; }
+
+/* contact line */
+.intro .contact { color: #cfd4dd; font-size: 1rem; margin: 0 0 6px; max-width: none; }
+.contact a { color: var(--accent); font-weight: 600; }
+.contact a:hover { text-decoration: underline; }
+@media (max-width: 600px) { .intro .contact { font-size: .92rem; } }
